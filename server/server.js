@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.set("view engine", "ejs");
 
-app.get("/thing", (req, res) => res.send("YES"));
+app.get("/", (req, res) => res.send("Api working"));
 
 app.get("/search/:input", (req, res) => {
   const search = req.params.input;
