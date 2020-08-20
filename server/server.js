@@ -17,10 +17,6 @@ app.set("view engine", "ejs");
 
 app.get("/thing", (req, res) => res.send("YES"));
 
-// app.get("/search/:something", (req, res) => {
-//   res.send("This is your search " + req.params.something);
-// });
-
 app.get("/search/:input", (req, res) => {
   const search = req.params.input;
   console.log(search);
@@ -29,14 +25,9 @@ app.get("/search/:input", (req, res) => {
   fetch(url)
     .then((response) => response.json())
     .then((json) => {
-      res.json(json);
+      const result = res.json(json.RelatedTopics);
+      res.json(result.Text), res.json(result.FirstURL);
     });
-
-  // request(url, (error, body) => {
-  //   console.log("error: ", error);
-  //   const parsedBody = JSON.parse(body);
-  //   res.render("results", { search: parsedBody });
-  // });
 });
 
 const port = process.env.PORT || 3000;
