@@ -8,8 +8,9 @@ class ResultList extends React.Component {
 
     return (
       <div>
-        <a href={tralala.FirstURL}>{tralala.Text}</a>
+        <a href={tralala.FirstURL} > {tralala.Text}</a>
       </div>
+
     )
   }
 }

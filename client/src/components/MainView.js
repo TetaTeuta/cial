@@ -17,6 +17,7 @@ export default class MainView extends Component {
 
   handleOnChange = event => {
     this.setState({ search: event.target.value });
+    event.preventDefault();
   };
 
   handleSearch = () => {
@@ -33,6 +34,7 @@ export default class MainView extends Component {
         result: response.data
       });
     });
+
   }
 
   render() {
