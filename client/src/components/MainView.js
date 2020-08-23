@@ -12,56 +12,46 @@ export default class MainView extends Component {
 
     this.state = {
       result: [],
-      searchValue: ''
+      search: ''
     };
   }
 
   handleOnChange = event => {
-    this.setState({ searchValue: event.target.value });
+    this.setState({ search: event.target.value });
   };
 
   handleSearch = () => {
-    this.makeApiCall(this.state.searchValue);
+    this.makeApiCall(this.state.search);
   };
 
   makeApiCall = searchInput => {
-    axios.get(`http://localhost:3000/search/${searchInput}`).then((response) => {
+
+    const urlString = `http://localhost:3000/search/${searchInput}`
+
+    axios.get(urlString).then((response) => {
+      console.log(urlString);
       this.setState({
-        search: response.data
+        result: response.data
       });
-      console.log(search)
     });
   }
 
-
-  // componentDidMount() {
-
-  //   axios.get(`http://localhost:3000/search/teuta`).then((response) => {
-  //     this.setState({
-  //       result: response.data
-  //     });
-  //   });
-  // }
-
   render() {
     const { result, search } = this.state;
-    console.log(result);
     return (
       <div>
         {result.map(tralala => (
           <ResultList key={tralala._id} tralala={tralala} />
         ))}
 
-        <SideBar />
-
         <Form>
           <FormGroup>
             <Label for="searchInput">Type anything: </Label>
-            <Input type="text" defaultValue={this.state.searchValue} id="userInput" placeholder="Search..." />
+            <Input type="text" onChange={event => this.handleOnChange(event)} defaultValue={this.state.search} id="userInput" placeholder="Search..." />
           </FormGroup>
-
           <Button onClick={this.handleSearch}>Search</Button>
         </Form>
+
       </div>
     );
   }
