@@ -22,7 +22,11 @@ app.get("/search/:input", (req, res) => {
     .then((response) => response.json())
     .then((json) => {
       const result = res.json(json.RelatedTopics);
-      res.json(result.Text), res.json(result.FirstURL);
+      // res.json(result[0]), res.json(result.FirstURL);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send(error);
     });
 });
 
