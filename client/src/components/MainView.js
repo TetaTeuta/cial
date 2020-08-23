@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import SearchView from "../components/SearchView";
 import ResultList from "../components/ResultList";
 import SideBar from "../components/SideBar";
 import axios from "axios";
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 
 export default class MainView extends Component {
@@ -37,12 +36,9 @@ export default class MainView extends Component {
   }
 
   render() {
-    const { result, search } = this.state;
+    const { result } = this.state;
     return (
       <div>
-        {result.map(tralala => (
-          <ResultList key={tralala._id} tralala={tralala} />
-        ))}
 
         <Form>
           <FormGroup>
@@ -51,6 +47,10 @@ export default class MainView extends Component {
           </FormGroup>
           <Button onClick={this.handleSearch}>Search</Button>
         </Form>
+
+        {result.map(tralala => (
+          <ResultList key={tralala._id} tralala={tralala} />
+        ))}
 
       </div>
     );

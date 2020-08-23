@@ -1,6 +1,4 @@
 import React from 'react';
-import MainView from "../components/MainView";
-
 
 class ResultList extends React.Component {
 
@@ -10,8 +8,7 @@ class ResultList extends React.Component {
 
     return (
       <div>
-        <p>{tralala.FirstURL} first p tag</p>
-        <p>{tralala.Text} second p tag</p>
+        <a href={tralala.FirstURL}>{tralala.Text}</a>
       </div>
     )
   }
