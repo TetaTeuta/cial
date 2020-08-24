@@ -1,5 +1,10 @@
 body {
   padding: 3rem;
+  background: #6e6362;
+}
+
+a {
+  color: #f2edeb;
 }
 
 .container__main {
@@ -13,10 +18,29 @@ body {
 .form__container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 10px;
+  height: 30vh;
+  width: 50vw;
+  background: #f2edeb;
+  box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.253);
 }
 
 .form__items {
   width: 30vw;
+  color: #c2efeb;
+}
+
+.form__items--button {
+  width: 17vw;
+  margin: auto;
+}
+
+.form__label {
+  @extend .form__items;
+  text-align: center;
+  color: #4e4a59;
 }
 
 .container__results {
@@ -25,7 +49,7 @@ body {
 }
 
 .history__result {
-  display: flex;
-  flex-direction: column;
+  @extend .form__container;
   width: 20vw;
+  height: 15vw;
 }

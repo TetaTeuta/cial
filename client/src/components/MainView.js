@@ -45,26 +45,32 @@ class MainView extends React.Component {
 
     return (
       <div className="container__main">
-        <Form className="form__container">
-          <FormGroup className="form__items">
-            <Label for="searchInput">Type anything: </Label>
-            <Input
-              type="text"
-              onChange={(event) => this.handleOnChange(event)}
-              defaultValue={this.state.search}
-              id="userInput"
-              placeholder="Search..."
-            />
-          </FormGroup>
-          <Button className="form__items" onClick={this.handleSearch}>
-            Search
-          </Button>
+        <div className="container__first">
+          <Form className="form__container">
+            <FormGroup className="form__items">
+              <Label className="form__label" for="searchInput">
+                Type anything
+              </Label>
+              <Input
+                type="text"
+                onChange={(event) => this.handleOnChange(event)}
+                defaultValue={this.state.search}
+                id="userInput"
+                placeholder="Search..."
+              />
+            </FormGroup>
+            <Button className="form__items--button" onClick={this.handleSearch}>
+              Search
+            </Button>
+          </Form>
+
           {result.map((list) => (
             <ResultList key={list._id} list={list} />
           ))}
-        </Form>
-
-        <SideBar search={this.getData} />
+        </div>
+        <div className="container__second">
+          <SideBar search={this.getData} />
+        </div>
       </div>
     );
   }
