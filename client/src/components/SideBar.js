@@ -1,18 +1,21 @@
 import React from "react";
 import MainView from "./MainView";
-import "../styles/SideBar.scss";
 
 class SideBar extends React.Component {
+  getData = () => {
+    let data = localStorage.getItem("input", true);
+    console.log(data);
+  };
+
   render() {
     const { search } = this.props;
-    console.log(search + " this is from history list");
 
     return (
       <div>
-        <h1>Search History</h1>
-        <li className="history__result" onClick={this.handleSearch}>
-          {search}
-        </li>
+        <h6>Search History</h6>
+        <a className="history__result" href={search} onChange={this.getData}>
+          {this.getData}
+        </a>
       </div>
     );
   }

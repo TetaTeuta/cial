@@ -1,0 +1,25 @@
+body {
+  padding: 3rem;
+}
+
+.container__main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100vh;
+  padding: 1rem;
+}
+
+.form__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__items {
+  width: 30vw;
+}
+
+.container__results {
+  width: 60vw;
+  margin-top: 1rem;
+}

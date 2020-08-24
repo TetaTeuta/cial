@@ -2,9 +2,17 @@ import React, { Component } from "react";
 import ResultList from "../components/ResultList";
 import SideBar from "../components/SideBar";
 import axios from "axios";
-import { connect } from "react-redux";
-import * as actionCreators from "../actions/index";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import "bootstrap/dist/css/bootstrap.css";
+import {
+  Container,
+  Col,
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input
+} from "reactstrap";
+import "../styles//MainView.scss";
 
 class MainView extends React.Component {
   constructor(props) {
@@ -27,14 +35,16 @@ class MainView extends React.Component {
 
   makeApiCall = (searchInput) => {
     const urlString = `http://localhost:3000/search/${searchInput}`;
-
-    axios.get(urlString).then((response) => {
-      console.log(urlString);
-
-      this.setState({
-        result: response.data
+    axios
+      .get(urlString)
+      .then((response) => {
+        this.setState({
+          result: response.data
+        });
+      })
+      .then(() => {
+        localStorage.setItem("input", searchInput);
       });
-    });
   };
 
   render() {
@@ -42,9 +52,9 @@ class MainView extends React.Component {
 
     console.log(search);
     return (
-      <div>
-        <Form>
-          <FormGroup>
+      <div className="container__main">
+        <Form className="form__container">
+          <FormGroup className="form__items">
             <Label for="searchInput">Type anything: </Label>
             <Input
               type="text"
@@ -54,19 +64,18 @@ class MainView extends React.Component {
               placeholder="Search..."
             />
           </FormGroup>
-          <Button onClick={this.handleSearch}>Search</Button>
+          <Button className="form__items" onClick={this.handleSearch}>
+            Search
+          </Button>
+          {result.map((list) => (
+            <ResultList key={list._id} list={list} />
+          ))}
         </Form>
 
-        {result.map((list) => (
-          <ResultList key={list._id} list={list} />
-        ))}
-
-        <SideBar search={search} />
+        <SideBar search={this.getData} />
       </div>
     );
   }
 }
-const mapStateToProps = (state) => {
-  return state;
-};
-export default connect(mapStateToProps, actionCreators)(MainView);
+
+export default MainView;
