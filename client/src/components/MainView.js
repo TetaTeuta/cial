@@ -16,14 +16,35 @@ class MainView extends React.Component {
     };
   }
 
+  /**
+   * Takes the users input and stores its value into a state
+   * @function handleOnChange
+   * @param search
+   * @returns {state}
+   */
+
   handleOnChange = (event) => {
     this.setState({ search: event.target.value });
     event.preventDefault();
   };
 
+  /**
+   * Once when click event is triggered, users input is taken and stored for API calls
+   * @function handleSearch
+   * @param  search
+   * @returns {state}
+   */
+
   handleSearch = () => {
     this.makeApiCall(this.state.search);
   };
+
+  /**
+   * Sends GET request to API and returns results based on query parametar
+   * @function makeApiCall
+   * @param  searchInput
+   * @returns {array} search results
+   */
 
   makeApiCall = (searchInput) => {
     const urlString = `http://localhost:3000/search/${searchInput}`;
