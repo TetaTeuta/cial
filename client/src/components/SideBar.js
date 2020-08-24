@@ -1,9 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
+import MainView from "./MainView";
+import "../styles/SideBar.scss";
 
-function SideBar() {
-  const [count, setCount] = useState(0);
+class SideBar extends React.Component {
+  render() {
+    const { search } = this.props;
+    console.log(search + " this is from history list");
 
-  return <div>This is SideBar</div>;
+    return (
+      <div>
+        <h1>Search History</h1>
+        <li className="history__result" onClick={this.handleSearch}>
+          {search}
+        </li>
+      </div>
+    );
+  }
 }
 
 export default SideBar;

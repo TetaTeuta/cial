@@ -1,17 +1,17 @@
-import React from 'react';
+import React from "react";
 
 class ResultList extends React.Component {
-
   render() {
-    const { tralala } = this.props;
-    console.log(tralala + ' this is from result list');
+    const { list } = this.props;
+    console.log(list + " this is from result list");
 
     return (
       <div>
-        <a href={tralala.FirstURL} > {tralala.Text}</a>
+        <a href={list.FirstURL} target="_blank">
+          {list.Text}
+        </a>
       </div>
-
-    )
+    );
   }
 }
 
