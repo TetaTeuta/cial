@@ -6,7 +6,7 @@ class ResultList extends React.Component {
 
     return (
       <div className="container__results">
-        <a href={list.FirstURL} target="_blank">
+        <a href={list.FirstURL} target="_blank" rel="noopener noreferrer">
           {list.Text}
         </a>
       </div>

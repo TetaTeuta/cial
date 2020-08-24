@@ -1,5 +1,4 @@
 import React from "react";
-import MainView from "./MainView";
 
 class SideBar extends React.Component {
   getData = () => {
@@ -9,7 +8,6 @@ class SideBar extends React.Component {
 
   render() {
     const { search } = this.props;
-
     return (
       <div>
         <h6>Search History</h6>

@@ -1,17 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import ResultList from "../components/ResultList";
 import SideBar from "../components/SideBar";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.css";
-import {
-  Container,
-  Col,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input
-} from "reactstrap";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import "../styles//MainView.scss";
 
 class MainView extends React.Component {
@@ -49,8 +41,8 @@ class MainView extends React.Component {
 
   render() {
     const { result, search } = this.state;
-
     console.log(search);
+
     return (
       <div className="container__main">
         <Form className="form__container">
