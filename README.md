@@ -15,7 +15,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Technical overview
 
-App makes GET request to DuckDuckGo API and returns the results based on query parametar. Backend is built in NodeJS and Express, frontend ir written in ReactJS. App is styled with SASS and Bootstrap.
+App makes GET request to DuckDuckGo API and returns the results based on query parametar. Backend is built in NodeJS and Express, frontend ir written in ReactJS. App is styled with SASS and Bootstrap. For more info check documentation folder (/client/documentation/index.html)
 
 ## Contributing
 
