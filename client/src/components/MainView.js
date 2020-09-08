@@ -90,7 +90,7 @@ class MainView extends React.Component {
           ))}
         </div>
         <div className="container__second">
-          <SideBar search={this.getData} />
+          <SideBar search={search} />
         </div>
       </div>
     );

@@ -1,19 +1,13 @@
 import React from "react";
 
 class SideBar extends React.Component {
-  getData = () => {
-    let data = localStorage.getItem("input", true);
-    console.log(data);
-  };
-
   render() {
     const { search } = this.props;
+    console.log(search + " from sidebar");
     return (
-      <div>
+      <div className="history__result">
         <h6>Search History</h6>
-        <a className="history__result" href={search} onChange={this.getData}>
-          {this.getData}
-        </a>
+        <a href={search}>{search}</a>
       </div>
     );
   }
